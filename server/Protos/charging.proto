@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "server";
+
+package charging;
+
+service Charging {
+    rpc ReportProgress (ProgressRequest) returns (stream ProgressResponse);
+}
+
+message ProgressRequest {
+    bool continue = 1;
+}
+
+message ProgressResponse {
+    int32 percentage = 1;
+}
